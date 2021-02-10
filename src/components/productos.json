@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nombre": "Producto 1",
+        "precio": "100",
+        "imagen": "http://lorempixel.com/400/400/food/6/",
+        "descripcion": "lorem ipsum dolor"
+    },
+    {
+        "id": 2,
+        "nombre": "Producto 2",
+        "precio": "200",
+        "imagen": "http://lorempixel.com/400/400/food/5/",
+        "descripcion": "lorem ipsum dolor"
+    },
+    {
+        "id": 3,
+        "nombre": "Producto 3",
+        "precio": "300",
+        "imagen": "http://lorempixel.com/400/400/food/3/",
+        "descripcion": "lorem ipsum dolor"
+    },
+    {
+        "id": 4,
+        "nombre": "Producto 4",
+        "precio": "400",
+        "imagen": "http://lorempixel.com/400/400/food/5/",
+        "descripcion": "lorem ipsum dolor"
+    },
+    {
+        "id": 5,
+        "nombre": "Producto 5",
+        "precio": "500",
+        "imagen": "http://lorempixel.com/400/400/food/3/",
+        "descripcion": "lorem ipsum dolor"
+    }
+]
