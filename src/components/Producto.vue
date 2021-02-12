@@ -4,8 +4,8 @@
     <div class="card-body text-center">
       <h5 class="card-title">{{ producto.nombre }}</h5>
       <p class="card-text text-muted">$ {{ producto.precio * 1 }}</p>
-      <button class="btn btn-outline-success" @click="agregarCarro(producto)">
-        <i class="fas fa-cart-plus"></i> Agregar al carrito
+      <button class="btn btn-outline-success" @click="agregarCarro(producto)" :disabled="estaEnCarrito">
+        <i class="fas fa-cart-plus"></i> <i> {{estaEnCarrito? 'Agregado':'Agregar al carrito'}}</i>
       </button>
     </div>
   </div>
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'Producto',
-  props: ['producto'],
+  props: ['producto','estaEnCarrito'],
   methods: {
     agregarCarro(producto) {
        this.$emit('agregar-carro',producto)
