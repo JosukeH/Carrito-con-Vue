@@ -24,14 +24,8 @@
         "id": 4,
         "nombre": "Producto 4",
         "precio": "400",
-        "imagen": "http://lorempixel.com/400/400/food/5/",
-        "descripcion": "lorem ipsum dolor"
-    },
-    {
-        "id": 5,
-        "nombre": "Producto 5",
-        "precio": "500",
-        "imagen": "http://lorempixel.com/400/400/food/3/",
+        "imagen": "http://lorempixel.com/400/400/food/1/",
         "descripcion": "lorem ipsum dolor"
     }
+  
 ]

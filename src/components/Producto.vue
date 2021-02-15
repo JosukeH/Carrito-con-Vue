@@ -1,5 +1,5 @@
 <template>
-  <div class="card my-5 mb-2">
+  <div class="card my-5 mb-2 ">
     <img :src="producto.imagen" alt="Comida" class="card-img-top" />
     <div class="card-body text-center">
       <h5 class="card-title">{{ producto.nombre }}</h5>

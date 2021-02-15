@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #e3f2fd">
+  <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="background-color: #da723c">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Charles Restaurant</a>
+      <a class="navbar-brand" href="#"> <i class="fas fa-carrot"></i> Charlie Restaurant </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -42,7 +42,7 @@
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
-              <i class="fas fa-shopping-cart"></i>
+              <i class="fas fa-shopping-cart"></i> <i class="h6">0</i>
         
             </button>
           </li>

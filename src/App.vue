@@ -1,12 +1,21 @@
 <template>
   <nav-bar> </nav-bar>
-  <cart :items="carrito"> </cart>
+  <cart :items="carrito" v-on:pagar="pagar" v-on:remover-item="removerProducto">
+  </cart>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-3" v-for="prod in productos" :key="prod.id">
-            <producto :estaEnCarrito="estaEnCarrito(prod)" :producto="prod" v-on:agregar-carro="agregarProdCarro">
+          <div
+            class="col-lg-3 col-md-6 col-sm-12"
+            v-for="prod in productos"
+            :key="prod.id"
+          >
+            <producto
+              :estaEnCarrito="estaEnCarrito(prod)"
+              :producto="prod"
+              v-on:agregar-carro="agregarProdCarro"
+            >
             </producto>
           </div>
         </div>
@@ -29,7 +38,7 @@ export default {
     Cart,
   },
   data() {
-    return { productos, carrito: [] };
+    return { productos, carrito:[] };
   },
   methods: {
     agregarProdCarro(producto) {
@@ -39,12 +48,23 @@ export default {
       const item = this.carrito.find((item) => item.id === producto.id);
       if (item) {
         return true;
-      } else {
-        return false;
       }
-    },
-  },
+        return false;
+      },
+removerProducto(producto){
+ this.carrito=this.carrito.filter(item => item.id != producto.id);
+} ,
+pagar(){
+  this.carrito=[];
+  alert('Venta completada')
+}
+},
+
 };
 </script>
 
-<style></style>
+<style>
+body {
+  margin-top: 20px;
+}
+</style>

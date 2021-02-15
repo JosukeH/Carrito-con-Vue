@@ -24,24 +24,26 @@
                 type="number"
                 style="width: 100%"
                 name=""
-                min="0"
+                min="1"
                 max="5"
-                placeholder="0"
+                value="1"
               />
             </div>
             <div class="col-3 align-top">
-              <img
-                :src="item.imagen"
-                class="icon"
-                alt="comida x"
-              />
+              <img :src="item.imagen" class="icon" alt="comida x" />
             </div>
-            <div class="col-3">{{item.nombre}}</div>
-            <div class="col-2">$ 100</div>
-            <div class="col-2"><i class="fas fa-times"></i></div>
-            <br>
+            <div class="col-3">{{ item.nombre }}</div>
+            <div class="col-2">$ {{ item.precio }}</div>
+            <div class="col-2">
+              <button
+                @click="removerItem(item)"
+                class="btn btn-outline-danger icon"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <br />
             <hr />
-
           </div>
         </div>
 
@@ -53,7 +55,14 @@
           >
             Cerrar
           </button>
-          <button type="button" class="btn btn-primary">Comprar</button>
+          <button
+            type="button"
+            @click="$emit('pagar')"
+            :disabled="items.lenght === 0"
+            class="btn btn-primary"
+          >
+            Comprar {{ total }}
+          </button>
         </div>
       </div>
     </div>
@@ -62,13 +71,33 @@
 
 <script>
 export default {
-  name: 'Cart',
-  props: ['items'],
+  name: "Cart",
+  props: ["items"],
+  computed: {
+    total() {
+      return this.items.reduce(
+        (acumulador, item) => acumulador + Number(item.precio),
+        0
+      );
+    },
+  },
+  methods: {
+    removerItem(item) {
+      this.$emit("remover-item", item);
+    },
+
+    pagar() {
+      this.carrito = [];
+      alert("Venta completada");
+    },
+  },
 };
 </script>
 
- <style> .icon{
-  position:relative;
-  top:-8px;
+<style>
+.icon {
+  position: relative;
+  top: -8px;
   max-width: 40px;
-} </style>
+}
+</style>
