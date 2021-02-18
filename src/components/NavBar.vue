@@ -42,7 +42,7 @@
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
-              <i class="fas fa-shopping-cart"></i> <i class="h6">0</i>
+              <i class="fas fa-shopping-cart"></i> <i class="h6"> {{longitud}} </i>
         
             </button>
           </li>
@@ -56,6 +56,7 @@
 <script>
 export default {
   name: "NavBar",
+  props: ["longitud"]
 };
 </script>
 

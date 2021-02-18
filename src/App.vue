@@ -1,5 +1,5 @@
 <template>
-  <nav-bar> </nav-bar>
+  <nav-bar :longitud="carrito.length"> </nav-bar>
   <cart :items="carrito" v-on:pagar="pagar" v-on:remover-item="removerProducto">
   </cart>
   <div class="container">
@@ -38,28 +38,29 @@ export default {
     Cart,
   },
   data() {
-    return { productos, carrito:[] };
+    return { productos, carrito: [], longitud:0 };
   },
   methods: {
     agregarProdCarro(producto) {
+      this.longitud+=1;
       this.carrito.push(producto);
+    
     },
     estaEnCarrito(producto) {
       const item = this.carrito.find((item) => item.id === producto.id);
       if (item) {
         return true;
       }
-        return false;
-      },
-removerProducto(producto){
- this.carrito=this.carrito.filter(item => item.id != producto.id);
-} ,
-pagar(){
-  this.carrito=[];
-  alert('Venta completada')
-}
-},
-
+      return false;
+    },
+    removerProducto(producto) {
+      this.carrito = this.carrito.filter((item) => item.id != producto.id);
+    },
+    pagar() {
+      this.carrito = [];
+      alert("Venta completada");
+    },
+  },
 };
 </script>
 

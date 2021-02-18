@@ -9,7 +9,9 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+            {{ items.length != 0 ? "Carrito" : "Carrito vacio" }}
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -18,6 +20,7 @@
           ></button>
         </div>
         <div class="modal-body">
+          <div v-if="items.length===0">Sin productos</div>
           <div class="row" v-for="item in items" :key="item.id">
             <div class="col-2">
               <input
@@ -32,10 +35,12 @@
             <div class="col-3 align-top">
               <img :src="item.imagen" class="icon" alt="comida x" />
             </div>
+
             <div class="col-3">{{ item.nombre }}</div>
             <div class="col-2">$ {{ item.precio }}</div>
             <div class="col-2">
               <button
+                :key="item.id"
                 @click="removerItem(item)"
                 class="btn btn-outline-danger icon"
               >
@@ -58,7 +63,7 @@
           <button
             type="button"
             @click="$emit('pagar')"
-            :disabled="items.lenght === 0"
+            :disabled="activo"
             class="btn btn-primary"
           >
             Comprar {{ total }}
